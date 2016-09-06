@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Survey</string>
+    <string name="showresults_button_text">Show Results</string>
+    <string name="no_button_text">No</string>
+    <string name="yes_button_text">Yes</string>
+    <string name="reset_button_text">Reset</string>
+</resources>
