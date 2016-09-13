@@ -21,11 +21,21 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> yesList;
     ArrayList<String> noList;
 
+    private static final String YES_LIST_BUNDLE_KEY = "List bundle key";
+    private static final String NO_LIST_BUNDLE_KEY = "List bundle key";
+
+    protected void onSaveInstanceState(Bundle outBundle){
+        outBundle.putStringArrayList(YES_LIST_BUNDLE_KEY, yesList);
+        outBundle.putStringArrayList(NO_LIST_BUNDLE_KEY, noList);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (savedInstanceState != null){
+            yesList = savedInstanceState.getStringArrayList(YES_LIST_BUNDLE_KEY);
+        }
         //If the list is null create it
         if (yesList == null){
             yesList = new ArrayList<String>();
