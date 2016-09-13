@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         NoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Todo: make sure that it adds up everytime it is
-                //TODO:clicked or add it to a list and get the number of times or length of that list to display how many the button is clicked
                 noList.add("no");
             }
         });
@@ -64,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Toast.makeText(MainActivity.this, "There are " + yesList.size() + " answers and there are " + noList.size() + " answers.", Toast.LENGTH_LONG).show();
-                //TODO: print out a length of the number of time it is click
+
             }
         });
 
