@@ -8,62 +8,72 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Buttons that are global
     Button YesButton;
     Button NoButton;
     Button ShowResult;
     Button Reset;
-    TextView result;
 
-    Integer no;
-    Integer yes;
-
-    ArrayList<Integer> yesList;
-    ArrayList<Integer> noList;
+    ArrayList<String> yesList;
+    ArrayList<String> noList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //If the list is null create it
+        if (yesList == null){
+            yesList = new ArrayList<String>();
+        }
+        if (noList == null){
+            noList = new ArrayList<String>();
+        }
+
         YesButton = (Button) findViewById(R.id.yes_button);
         NoButton = (Button) findViewById(R.id.no_button);
         ShowResult = (Button) findViewById(R.id.show_result_button);
         Reset = (Button) findViewById(R.id.reset_button);
 
+
+        //Every time the button is clicked adds to the yes list
         YesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                yes = 0;
-                yes +=1;
+                yesList.add("yes");
             }
         });
+        //Same as yes button adds to list when clicked
         NoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                no = 0;
-                no +=1;
                 //Todo: make sure that it adds up everytime it is
                 //TODO:clicked or add it to a list and get the number of times or length of that list to display how many the button is clicked
-
+                noList.add("no");
             }
         });
+
+        //When clicked a message will show saying the amount of times a button been pressed
         ShowResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MainActivity.this, "Yes answers are "+ yes.toString()+ " and no answers are " + no.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "There are " + yesList.size() + " answers and there are " + noList.size() + " answers.", Toast.LENGTH_LONG).show();
                 //TODO: print out a length of the number of time it is click
             }
         });
+
+        //Clears both of the list
         Reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                yesList.clear();
+                noList.clear();
             }
         });
     }
